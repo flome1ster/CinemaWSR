@@ -6,11 +6,23 @@
 //
 
 import SwiftUI
+//import Alamofire
+
 
 struct ContentView: View {
+    @EnvironmentObject var userViewModel : UserViewModel
+    @State private var isReg = UserDefaults.standard.bool(forKey: "isReg")
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        NavigationView{
+            if isReg {
+                SignIn()
+            }
+            else
+            {
+                SignUp()
+                
+            }
+        }.navigationBarHidden(true)
     }
 }
 

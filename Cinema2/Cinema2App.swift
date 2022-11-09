@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct Cinema2App: App {
+    @ObservedObject var userViewModel: UserViewModel = UserViewModel()
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(userViewModel)
         }
     }
 }
